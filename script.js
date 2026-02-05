@@ -1,18 +1,15 @@
 const music = document.getElementById("bgMusic");
+const overlay = document.getElementById("startOverlay");
 let playing = false;
 
-// Auto-play after 1 second
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        music.volume = 0;
-        music.play().then(() => {
-            music.muted = false;
-            fadeInMusic();
-            playing = true;
-        }).catch(() => {
-            console.log("Autoplay blocked");
-        });
-    }, 1000);
+// Start music ONLY after user tap (required on mobile)
+overlay.addEventListener("click", () => {
+    music.volume = 0;
+    music.play().then(() => {
+        fadeInMusic();
+        playing = true;
+        overlay.style.display = "none";
+    });
 });
 
 // Smooth fade-in
@@ -28,7 +25,7 @@ function fadeInMusic() {
     }, 200);
 }
 
-// Music toggle
+// Music toggle button
 function toggleMusic() {
     if (!playing) {
         music.play();
@@ -41,7 +38,6 @@ function toggleMusic() {
 
 // Floating particles
 const particleContainer = document.querySelector(".particles");
-
 for (let i = 0; i < 25; i++) {
     const span = document.createElement("span");
     span.style.left = Math.random() * 100 + "vw";
