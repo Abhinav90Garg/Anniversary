@@ -12,11 +12,39 @@ body {
     overflow-x: hidden;
 }
 
+/* Tap to Start Overlay */
+#startOverlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, #0b0b10, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.start-box {
+    padding: 22px 30px;
+    border: 1px solid rgba(212,175,55,0.4);
+    border-radius: 16px;
+    color: #d4af37;
+    font-size: 18px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(6px);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
 /* Music Button */
 .music-btn {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 18px;
+    right: 18px;
     background: rgba(212,175,55,0.15);
     border: 1px solid #d4af37;
     color: #d4af37;
@@ -36,7 +64,6 @@ body {
     font-family: 'Great Vibes', cursive;
     font-size: 64px;
     color: #d4af37;
-    text-shadow: 0 0 25px rgba(212,175,55,0.3);
 }
 
 .hero h2 {
@@ -101,7 +128,7 @@ footer {
     color: #999;
 }
 
-/* Animations */
+/* Fade-in */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -132,7 +159,6 @@ footer {
 
 /* 📱 MOBILE FIX */
 @media (max-width: 768px) {
-
     .hero h1 { font-size: 44px; }
     .hero h2 { font-size: 26px; }
 
