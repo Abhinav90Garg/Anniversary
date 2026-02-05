@@ -1,7 +1,7 @@
 const music = document.getElementById("bgMusic");
 let playing = false;
 
-// Auto-play after 2 seconds (muted → fade in)
+// Auto-play after 1 second
 window.addEventListener("load", () => {
     setTimeout(() => {
         music.volume = 0;
@@ -10,12 +10,12 @@ window.addEventListener("load", () => {
             fadeInMusic();
             playing = true;
         }).catch(() => {
-            console.log("Autoplay blocked by browser");
+            console.log("Autoplay blocked");
         });
-    }, 2000);
+    }, 1000);
 });
 
-// Smooth volume fade in
+// Smooth fade-in
 function fadeInMusic() {
     let volume = 0;
     const interval = setInterval(() => {
@@ -28,7 +28,7 @@ function fadeInMusic() {
     }, 200);
 }
 
-// Music toggle button
+// Music toggle
 function toggleMusic() {
     if (!playing) {
         music.play();
@@ -39,7 +39,7 @@ function toggleMusic() {
     }
 }
 
-// Floating light particles
+// Floating particles
 const particleContainer = document.querySelector(".particles");
 
 for (let i = 0; i < 25; i++) {
